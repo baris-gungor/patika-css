@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid style layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="sidebar-off">
+        <div>side bar item</div>
+        <div>side bar item</div>
+        <div>side bar item</div>
+        <div>side bar item</div>
+    </div>
+    <div>
+        <button class="sidebarbtn">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div>
+    <div class="container">
+        <div class="header">header
+            <div>header item</div>
+            <div>header item</div>
+            <div>header item</div>
+        </div>
+        <div class="navigation-menu">nav-menu
+            <div>menu item</div>
+            <div>menu item</div>
+            <div>menu item</div>
+            <div>menu item</div>
+            <div>menu item</div>
+        </div>
+        <div class="main-content">content
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+            <div>content item</div>
+
+        </div>
+        <div class="footer">footer
+            <div>footer item</div>
+            <div>footer item</div>
+            <div>footer item</div>
+            <div>footer item</div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+    .container {
+        margin: 0px auto;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .header {
+        grid-column: span 12;
+        background: rgb(197, 207, 255);
+    }
+
+    .navigation-menu {
+        grid-column: span 4;
+        background: rgb(255, 214, 125);
+    }
+
+    .main-content {
+        grid-column: span 8;
+        background: rgb(244, 125, 255);
+    }
+
+    .footer {
+        grid-column: span 12;
+        background: rgb(173, 125, 255);
+    }
+
+
+    @media screen and (max-width: 480px) {
+        .navigation-menu {
+            grid-row: 2;
+            grid-column: span 12;
+        }
+
+        .main-content {
+            grid-column: span 12;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .container {
+            max-width: 85%;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .container {
+            max-width: 70%;
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        .container {
+            max-width: 60%;
+        }
+    }
+
+    @media screen and (min-width: 2000px) {}
+
+
+    .sidebar {
+        background-color: rgb(255, 255, 255);
+        position: fixed;
+        border: none;
+        width: 20%;
+        height: 110%;
+        padding: 60px 10px;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0px 0px 7px 2px rgb(0 0 0 / 20%);
+
+    }
+
+    .sidebar-off {
+        opacity: 0;
+        position: fixed;
+        width: 0%;
+        height: 110%;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .sidebarbtn {
+        margin: 16px;
+        position: fixed;
+        background-color: rgb(255, 255, 255);
+        border: none;
+        color: rgb(132, 132, 132);
+        padding: 6px 9px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0px 0px 7px 2px rgb(0 0 0 / 20%);
+
+    }
+
+    .sidebarbtn:hover {
+        background-color: rgb(235, 235, 235);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .sidebarbtn i {
+        font-size: 22px;
+    }
+</style>
+<script>
+    var sidebarbtn = document.getElementsByClassName("sidebarbtn")[0];
+    var sidebar = document.getElementsByClassName("sidebar-off")[0];
+
+    sidebarbtn.addEventListener("click", () => {
+        if (sidebar.className == "sidebar") {
+            console.log("if")
+            sidebar.className = "sidebar-off"
+        } else if (sidebar.className == "sidebar-off") {
+            console.log("else if")
+            sidebar.className = "sidebar"
+
+        } else {
+            console.log("else")
+        }
+    });
+
+</script>
